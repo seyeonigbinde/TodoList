@@ -1,5 +1,5 @@
 {
-  "name": "build-week-scaffolding-node",
+  "name": "my-todolist",
   "version": "1.0.0",
   "scripts": {
     "start": "node index.js",
@@ -7,12 +7,13 @@
     "migrate": "knex migrate:latest",
     "rollback": "knex migrate:rollback",
     "seed": "knex seed:run",
-    "migrateh": "heroku run knex migrate:latest -a YOUR_HEROKU_APP_NAME",
-    "rollbackh": "heroku run knex migrate:rollback -a YOUR_HEROKU_APP_NAME",
-    "databaseh": "heroku pg:psql -a YOUR_HEROKU_APP_NAME",
-    "seedh": "heroku run knex seed:run -a YOUR_HEROKU_APP_NAME",
+    "migrateh": "heroku run knex migrate:latest -a my-todolist-apps",
+    "rollbackh": "heroku run knex migrate:rollback -a my-todolist-apps",
+    "databaseh": "heroku pg:psql -a my-todolist-apps",
+    "seedh": "heroku run knex seed:run -a my-todolist-apps",
     "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand",
-    "deploy": "git push heroku main"
+    "deploy": "git push heroku main",
+    "heroku-postbuild": "cd todolist-app && npm i && npm run build"
   },
   "engines": {
     "node": "14.16.0",
