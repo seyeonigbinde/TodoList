@@ -2,9 +2,6 @@ import axios from "axios"
 import React, { useState } from "react"
 import { useHistory, Link } from 'react-router-dom'
 
-import altrestlogo2 from '../images/altrestlogo2.png'
-import DashFooter from "./DashFooter"
-
 const credentials = {
   email: "",
   password: ""
@@ -45,7 +42,7 @@ const Login = () => {
     <section>
       <header>
         <div className="logo">
-          <Link to='/'><img src={altrestlogo2} alt="logo" /></Link>
+          <Link to='/'><img src="" alt="logo" /></Link>
         </div>
       </header>
       <div className="form_section">
@@ -83,7 +80,6 @@ const Login = () => {
         <p data-testid="errorMessage" className="error">{error}</p>
       </div>
       <p className="signup_login"> Don't have an account? <Link to="/signup">Register</Link></p>
-      <DashFooter/>
     </section>
   )
 }

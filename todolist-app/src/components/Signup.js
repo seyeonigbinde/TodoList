@@ -4,9 +4,6 @@ import * as yup from 'yup'
 import formSchema from '../utils/formSchema'
 import axios from 'axios'
 
-import altrestlogo2 from '../images/altrestlogo2.png'
-import DashFooter from './DashFooter'
-
 const initialFormValues = {
   email: '',
   password: '',
@@ -69,7 +66,7 @@ const Signup = () => {
     <section>
       <header>
         <div className="logo">
-          <Link to='/'><img src={altrestlogo2} alt="logo" /></Link>
+          <Link to='/'><img src="" alt="logo" /></Link>
         </div>
       </header>
       <section className="form_section">
@@ -90,7 +87,6 @@ const Signup = () => {
         </form><br />
         <p className="signup_login"> Already have an account? <Link to="/login">Login</Link></p>
       </section>
-      <DashFooter/>
     </section>
   );
 }
