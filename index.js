@@ -13,7 +13,7 @@ const port = process.env.PORT
 
 server.use(express.static(path.join(__dirname, 'todolist-app/build')))
 
-server.get('/', (req, res) => {
+server.get('/*', (req, res) => {
   // if you want to serve a SPA using Express you totally can!
   res.sendFile(path.join(__dirname, 'todolist-app/build', 'index.html'))
 })
