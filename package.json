@@ -1,5 +1,5 @@
 {
-  "name": "my-todolist",
+  "name": "my-todolist-apps",
   "version": "1.0.0",
   "scripts": {
     "start": "node index.js",
@@ -21,6 +21,7 @@
   },
   "license": "ISC",
   "dependencies": {
+    "babel-jest": "^26.6.0",
     "cors": "2.8.5",
     "dotenv": "10.0.0",
     "express": "4.17.1",
@@ -33,7 +34,6 @@
     "@types/jest": "26.0.24",
     "cross-env": "7.0.3",
     "eslint": "7.31.0",
-    "jest": "27.0.6",
     "nodemon": "2.0.12",
     "supertest": "6.1.4"
   }
