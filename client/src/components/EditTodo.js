@@ -14,7 +14,7 @@ const EditTodo = (props) => {
     });
 
     useEffect(() => {
-        axios.get(`https://my-todolist-apps.herokuapp.com/api//todos/todo${id}`)
+        axios.get(`https://my-todolist-apps.herokuapp.com/api/todos/todo${id}`)
             .then(res => {
                 setTodo(res.data);
             })

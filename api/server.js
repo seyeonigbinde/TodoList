@@ -19,7 +19,7 @@ server.use(
 
 server.use('/api/auth', authRouter)
 server.use('/api', userRouter)
-server.use('/api/todo', todoRouter)
+server.use('/api/todos', todoRouter)
 
 server.use(
   helmet({
