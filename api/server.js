@@ -14,6 +14,12 @@ server.use(cors())
 server.use('/api/auth', authRouter)
 server.use('/api', userRouter)
 
+server.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
+
 server.use((err, req, res, next) => { // eslint-disable-line
   res.status(500).json({
     message: err.message,
