@@ -7,7 +7,7 @@ const Dashboard = () =>{
     const [todos, setTodos] = useState([])
 
 	useEffect(() => {
-		axios.get("https://my-todolist-apps.herokuapp.com/api/todos/todos")
+		axios.get("https://my-todolist-apps.herokuapp.com/api/app/todos")
 			.then(res => {
 				setTodos(res.data)
 			})
