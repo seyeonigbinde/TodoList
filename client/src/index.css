@@ -1,13 +1,85 @@
+/* CSS Reset */
+html, body, div, span, applet, object, iframe, table, caption, tbody, tfoot, thead, tr, th, td, 
+del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, 
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, 
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
+	vertical-align: baseline;
+	font-family: inherit;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	outline: 0;
+	padding: 0;
+	margin: 0;
+/* 	border: 0; */
+	}
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+background-color: #1C2833;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+line-height: 1.5;
+color: #fff;
 }
-
+*{
+  box-sizing: border-box; 
+   max-width:100%; 
+   border: 1px solid red; 
+  margin: 0 auto;
+ 
+}
+h1{
+  font-size: 2.8rem;
+}
+h2{
+  font-size: 2.0rem;
+}
+h3{
+  font-size: 1.4rem;
+}
+p{
+  font-size: 1rem;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.form_section,
+ .form_section2 {
+  border: 2px solid #185adb;
+  padding: 1% 2%;
+  width: 70%;
+  margin: auto;
+  margin-bottom: 3%;
+  margin-top: 3%;
+}
+.form_section2{
+  width: 70%;
+}
+label{
+  float: left;
+	width: 8em;
+	text-align: left;
+  align-items: center;
+  padding-top: 1%;
+	padding-right: 0.5em;
+  font-size: 1.2rem;
+  margin: 0 0%;
+}
+.dashboard_container{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.dashboard_card{
+  width: 20rem;
+  background: #eee;
+  /* border: 1px solid #185adb; */
+  box-shadow: 6px 4px 10px #185adb;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: left;
+}
+.sidebar{
+  width: 4rem;
+  text-align: center;
 }

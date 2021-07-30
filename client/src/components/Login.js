@@ -74,12 +74,12 @@ const Login = () => {
                 placeholder="Enter Password"
               />
             </div>
-            <button>Login</button>
+            <button className="btn-primary">Login</button>
           </form>
         </div>
         <p data-testid="errorMessage" className="error">{error}</p>
       </div>
-      <p className="signup_login"> Don't have an account? <Link to="/signup">Register</Link></p>
+      <p className="signup_login"> Don't have an account? <Link to="/signup">Sign Up</Link></p>
     </section>
   )
 }

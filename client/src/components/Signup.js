@@ -51,7 +51,7 @@ const Signup = () => {
       password: formValues.password.trim(),
     }
 
-    axios.post('https://altrest-app.herokuapp.com/api/auth/register', newUser)
+    axios.post('https://my-todolist-apps.herokuapp.com/api/auth/register', newUser)
       .then(res => {
         console.log(res)
         push('/login')
