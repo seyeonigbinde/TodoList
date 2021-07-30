@@ -15,6 +15,7 @@ const initialFormErrors = {
 }
 
 const NewTodo = () => {
+
   const { push } = useHistory();
 
   const [formValues, setFormValues] = useState(initialFormValues)
@@ -51,7 +52,7 @@ const NewTodo = () => {
       activity: formValues.activity.trim(),
     }
 
-    axios.post('https://my-todolist-apps.herokuapp.com/api/app/newtodo', newTodo)
+    axios.post('https://my-todolist-apps.herokuapp.com/api/app/addtodo', newTodo)
       .then(res => {
         console.log(res)
         push('/dashboard')
