@@ -46,19 +46,19 @@ router.put('/todo/:id', (req, res) => {
       .status(422)
       .send("Make sure your request body has all the fields it needs");
   }
-  movies = movies.map(movie => {
-    if (`${movie.id}` === req.params.id) {
-      return req.body;
-    }
-    return movie;
-  });
-  res.status(200).send(movies);
+  // movies = movies.map(movie => {
+  //   if (`${movie.id}` === req.params.id) {
+  //     return req.body;
+  //   }
+  //   return movie;
+  // });
+  // res.status(200).send(movies);
 });
 
-app.delete("/api/movies/:id", (req, res) => {
+router.delete("/api/movies/:id", (req, res) => {
   if (!req.params.id)
     res.status(400).send("Your request is missing the movie id");
-  movies = movies.filter(movie => `${movie.id}` !== req.params.id);
+  // movies = movies.filter(movie => `${movie.id}` !== req.params.id);
   res.status(202).send(req.params.id);
 });
 
