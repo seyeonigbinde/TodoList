@@ -4,6 +4,7 @@ import './App.css'
 import Dashboard from './components/Dashboard'
 
 import Login from './components/Login'
+import NewTodo from './components/NewTodo'
 import Signup from './components/Signup'
 
 
@@ -12,6 +13,9 @@ function App() {
     <div className="App">
   
       <Switch>
+      <Route path='/newtodo'>
+          <NewTodo />
+        </Route>
       <Route path='/dashboard'>
           <Dashboard />
         </Route>
