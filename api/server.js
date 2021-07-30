@@ -4,6 +4,7 @@ const cors = require('cors')
 
 const userRouter = require('./users/users_router')
 const authRouter = require('./auth/auth-router')
+const todoRouter = require('./todos/todos_router')
 
 const server = express()
 
@@ -18,6 +19,7 @@ server.use(
 
 server.use('/api/auth', authRouter)
 server.use('/api', userRouter)
+server.use('/api/todo', todoRouter)
 
 server.use(
   helmet({

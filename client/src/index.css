@@ -88,12 +88,26 @@ label{
 .sidebar{
   width: 25rem;
   text-align: center;
+  background-color: #D6EAF8;
 }
-button{
+/* button{
   border: none;
-  background-color: black;
+  background-color: #185adb;
   color: white;
-  padding: 8px 15px;
-  margin-top: 16px;
+  padding: 3% 3%;
+  margin: 2% 2%;
   cursor: pointer;
+  
+} */
+.button_delete{
+  background-color: #F1948A;
+  color: #4f4f4f;
+}
+.button_edit{
+  background-color: #F9E79F;
+  color: #4f4f4f;
+}
+.button_details{
+  background-color: #85C1E9;
+  color: #4f4f4f;
 }
