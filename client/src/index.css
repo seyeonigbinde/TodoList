@@ -14,17 +14,16 @@ dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
 /* 	border: 0; */
 	}
 body {
-background-color: #1C2833;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 line-height: 1.5;
-color: #fff;
 }
 *{
   box-sizing: border-box; 
    max-width:100%; 
    border: 1px solid red; 
   margin: 0 auto;
- 
+  background-color: #1C2833;;
+  color: #fff;
 }
 h1{
   font-size: 2.8rem;

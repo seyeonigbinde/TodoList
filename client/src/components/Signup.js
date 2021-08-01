@@ -84,7 +84,7 @@ const Signup = () => {
           </div>
           <br />
           <button disabled={disabled}>Sign Up</button>
-        </form><br />
+        </form>
         <p className="signup_login"> Already have an account? <Link to="/login">Login</Link></p>
       </section>
     </section>

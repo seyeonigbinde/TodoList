@@ -25,7 +25,7 @@ router.get('/todo/:id', (req, res) => {
   }))
 });
 
-router.post('/addtodo', (req, res, next) => {
+router.post('/todo', (req, res, next) => {
   Todo.addTodo(req.body)
     .then(newTodoList => {
       res.status(201).json(newTodoList);
@@ -35,7 +35,7 @@ router.post('/addtodo', (req, res, next) => {
 
 router.put('/todo/:id', (req, res) => {
   if (!req.params.id)
-    res.status(400).send("Your request is missing the movie id");
+    res.status(400).send("Your request is missing the todo id");
   if (
     req.body.id === undefined ||
     !req.body.title ||
@@ -55,11 +55,17 @@ router.put('/todo/:id', (req, res) => {
   // res.status(200).send(movies);
 });
 
-router.delete("/api/movies/:id", (req, res) => {
-  if (!req.params.id)
-    res.status(400).send("Your request is missing the movie id");
-  // movies = movies.filter(movie => `${movie.id}` !== req.params.id);
-  res.status(202).send(req.params.id);
+router.delete("/todo/:id", (req, res, next) => {
+  const todo_id = req.params.id 
+  Todo.deleteTodo(todo_id)
+    .then((count) => {
+      if (count > 0) {
+        res.status(204).end();
+      } else {
+        res.status(404).json({ message: "todo not found" });
+      }
+    })
+    .catch(next);
 });
 
 module.exports = router
