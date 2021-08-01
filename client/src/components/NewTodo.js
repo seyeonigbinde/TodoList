@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory, Link } from 'react-router-dom'
 import * as yup from 'yup'
 import newTodoSchema from '../utils/newTodoSchema'
-import axios from 'axios'
+import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 const initialFormValues = {
   title: '',
@@ -52,7 +52,7 @@ const NewTodo = () => {
       activity: formValues.activity.trim(),
     }
 
-    axios.post('https://my-todolist-apps.herokuapp.com/api/app/todos', newTodo)
+    axiosWithAuth().post('/app/todos', newTodo)
       .then(res => {
         console.log(res)
         push('/dashboard')
@@ -85,6 +85,7 @@ const NewTodo = () => {
           </div>
           <br />
           <button disabled={disabled}>Create New Todo</button>
+          <Link to={'/dashboard'}><button className="btn btn-secondary"  type="button"  value="Cancel"> Cancel </button></Link>
         </form>
       </section>
     </section>

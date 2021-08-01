@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { axiosWithAuth } from '../utils/axiosWithAuth'
 
-import axios from 'axios';
 
 const EditTodo = (props) => {
     const { push } = useHistory();
@@ -14,7 +14,7 @@ const EditTodo = (props) => {
     });
 
     useEffect(() => {
-        axios.get(`https://my-todolist-apps.herokuapp.com/api/todos/todo${id}`)
+        axiosWithAuth().get(`https://my-todolist-apps.herokuapp.com/api/todos/todo${id}`)
             .then(res => {
                 setTodo(res.data);
             })
@@ -32,7 +32,7 @@ const EditTodo = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put(`https://my-todolist-apps.herokuapp.com/api/todos/todo${id}`, todo)
+        axiosWithAuth().put(`https://my-todolist-apps.herokuapp.com/api/todos/todo${id}`, todo)
             .then(res => {
                 setTodo(res.data);
                 push(`/dashboard`);

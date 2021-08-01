@@ -1,20 +1,10 @@
-import React, {useEffect, useState} from "react"
-import { Link } from 'react-router-dom'
-import axios from "axios"
+import React from "react"
+import { Switch, Route } from 'react-router-dom'
 
-const Dashboard = () =>{
+import NewTodo from './NewTodo'
+import DashboardHome from './DashboardHome'
 
-    const [todos, setTodos] = useState([])
-
-	useEffect(() => {
-		axios.get("https://my-todolist-apps.herokuapp.com/api/app/todos")
-			.then(res => {
-				setTodos(res.data)
-			})
-			.catch(err => {
-				console.log(err)
-			})
-	})
+const Dashboard = () => {
 
     const logOut = () => {
         localStorage.removeItem("token")
@@ -22,38 +12,27 @@ const Dashboard = () =>{
     };
 
 
-return (
-    <section className="dashboard">
-        <div className="sidebar">
-            <h2>My Todo App</h2>
-            <br/>
-            <button className="btn-primary" onClick={logOut}> Log Out</button>
-        </div>
-        <section>
-            <div>
-                <Link to="/newtodo">Add New Todo</Link>
+    return (
+        <section className="dashboard">
+            <div className="sidebar">
+                <h2>My Todo App</h2>
+                <br />
+                <button className="btn-primary" onClick={logOut}> Log Out</button>
             </div>
-        <div className="dashboard_container">
-            <div class="dashboard_card">
-                <button className="btn-secondary">Completed</button>
-                <br/>
-                {todos.map((todo, i) => {
-						return (
-							<div className="dashboard_card" key={i}>
-								<p>Title: {todo.title}</p>
-								<p>Activity: {todo.activity}, 
-                                </p>
-							</div>
-						)
-					})}
-                <button className="button_edit"><i class="fas fa-edit"></i> Edit</button>
-                <button className="button_details"><i class="fas fa-sticky-note"></i> Details</button><></>
-                <button className="button_delete"><i class="fas fa-trash-alt"></i> Delete</button>
-            </div>
-        </div>
+            <section>
+                <div className="dashboard_container">
+                    <Switch>
+                        <Route path='/dashboard/newtodo'>
+                            <NewTodo />
+                        </Route>
+                        <Route exact path='/dashboard'>
+                            <DashboardHome />
+                        </Route>
+                    </Switch>
+                </div>
+            </section>
         </section>
-    </section>
-)
+    )
 }
 
 export default Dashboard 
