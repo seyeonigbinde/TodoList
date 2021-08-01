@@ -25,7 +25,7 @@ router.get('/todo/:id', (req, res) => {
   }))
 });
 
-router.post('/todo', (req, res, next) => {
+router.post('/todos', (req, res, next) => {
   Todo.addTodo(req.body)
     .then(newTodoList => {
       res.status(201).json(newTodoList);
