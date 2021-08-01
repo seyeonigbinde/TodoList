@@ -52,7 +52,7 @@ const NewTodo = () => {
       activity: formValues.activity.trim(),
     }
 
-    axios.post('https://my-todolist-apps.herokuapp.com/api/app/addtodo', newTodo)
+    axios.post('https://my-todolist-apps.herokuapp.com/api/app/todos', newTodo)
       .then(res => {
         console.log(res)
         push('/dashboard')
