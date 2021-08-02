@@ -33,8 +33,8 @@ router.post('/todos', (req, res, next) => {
     .catch(next);
 })
 
-router.put('/todo/:id', (req, res) => {\
-  const todo_id = req.params.id 
+router.put('/todo/:id', (req, res) => {
+
   if (!req.params.id)
     res.status(400).send("Your request is missing the todo id");
   if (
