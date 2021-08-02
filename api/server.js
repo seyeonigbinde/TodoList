@@ -19,13 +19,7 @@ server.use(
 
 server.use('/api/auth', authRouter)
 server.use('/api', userRouter)
-server.use('/api/app', todoRouter)
-
-server.use(
-  helmet({
-    contentSecurityPolicy: false,
-  })
-);
+server.use('/api', todoRouter)
 
 server.use((err, req, res, next) => { // eslint-disable-line
   res.status(500).json({

@@ -25,7 +25,7 @@ const Dashboard_Home = () => {
                     <Link to="/dashboard/newtodo"> My Todo</Link>
                 </div>
                 <div className="dashboard_container">
-                    <div class="dashboard_card">
+                    <div className="dashboard_card">
                         <br />
                         {todos.map((todo, i) => {
                             return (

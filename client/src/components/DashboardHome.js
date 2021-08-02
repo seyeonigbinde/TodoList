@@ -60,7 +60,7 @@ const Dashboard_Home = () => {
                     <Link to="/dashboard/newtodo">Add New Todo</Link>
                 </div>
                 <div className="dashboard_container">
-                    <div class="dashboard_card">
+                    <div className="dashboard_card">
                         <button className="btn-secondary">Completed</button>
                         <br />
                         {todos.map((todo, i) => {
@@ -71,9 +71,9 @@ const Dashboard_Home = () => {
                                 </div>
                             )
                         })}
-                        <button className="button_edit" onClick={handleUpdateTodo}><i class="fas fa-edit"></i> Edit</button>
-                        <button className="button_details" onClick={handleDetailTodo}><i class="fas fa-sticky-note"></i> Details</button><></>
-                        <button className="button_delete" onClick={handleDeleteTodo}><i class="fas fa-trash-alt"></i> Delete</button>
+                        <button className="button_edit" onClick={handleUpdateTodo}><i className="fas fa-edit"></i> Edit</button>
+                        <button className="button_details" onClick={handleDetailTodo}><i className="fas fa-sticky-note"></i> Details</button><></>
+                        <button className="button_delete" onClick={handleDeleteTodo}><i className="fas fa-trash-alt"></i> Delete</button>
                     </div>
                 </div>
             </section>
