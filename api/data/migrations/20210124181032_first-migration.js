@@ -8,17 +8,18 @@ exports.up = function (knex) {
         .notNullable()
       table.timestamps(false, true)
     })
-    .createTable('myTodo', table => {
+    .createTable('mytodo', table => {
       table.increments('todo_id')
       table.string('title', 138)
         .notNullable()
-      table.string('activity', 138)
+      table.string('activity', 150)
         .notNullable()
+      table.timestamps(false, true)
     })
 }
 
 exports.down = function (knex) {
   return knex.schema
-    .dropTableIfExists('myTodo')
+    .dropTableIfExists('mytodo')
     .dropTableIfExists('users')
 }
