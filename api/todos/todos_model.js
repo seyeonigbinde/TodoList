@@ -1,7 +1,7 @@
 const db = require('../data/db-config')
 
 function findTodo() {
-  return db("mytodo as m")
+  return db("mytodo")
   .select("todo_id", "title", "activity")
   .orderBy("todo_id");
 }
@@ -17,19 +17,19 @@ function addTodo(todo) {
 }
 
 function findTodoById(todo_id) {
-  return db("mytodo as m")
+  return db("mytodo")
     .select("todo_id", "title", "activity")
     .where({todo_id})
     .first()
 }
 function editTodo(todo_id) {
-    return db("mytodo as m")
+    return db("mytodo")
     .select("todo_id", "title", "activity")
     .where({todo_id})
     .update()
   }
 function deleteTodo(todo_id) {
-    return db("mytodo as m")
+    return db("mytodo")
     .select("todo_id", "title", "activity")
     .where({todo_id})
     .delete()
