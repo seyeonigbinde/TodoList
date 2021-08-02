@@ -52,7 +52,7 @@ const NewTodo = () => {
       activity: formValues.activity.trim(),
     }
 
-    axiosWithAuth().post('/app/todos', newTodo)
+    axiosWithAuth().post('/todos', newTodo)
       .then(res => {
         console.log(res)
         push('/dashboard')

@@ -9,7 +9,7 @@ const Dashboard_Home = () => {
     const { push } = useHistory()
 
     useEffect(() => {
-        axiosWithAuth().get("/app/todos")
+        axiosWithAuth().get("/todos")
             .then(res => {
                 setTodos(res.data)
             })
@@ -19,7 +19,7 @@ const Dashboard_Home = () => {
     })
 
     const handleDetailTodo = () => {
-        axiosWithAuth().get(`/app/todo/:id`)
+        axiosWithAuth().get(`/todo/:id`)
             .then(res => {
                 setTodos(res.data)
                 push('/dashboard')
@@ -31,7 +31,7 @@ const Dashboard_Home = () => {
     }
 
     const handleUpdateTodo = () => {
-        axiosWithAuth().put(`/app/todo/:id`)
+        axiosWithAuth().put(`/todo/:id`)
             .then(res => {
                 setTodos(res.data)
                 push('/dashboard')
@@ -43,7 +43,7 @@ const Dashboard_Home = () => {
     }
 
     const handleDeleteTodo = () => {
-        axiosWithAuth().delete(`/app/todo/:id`)
+        axiosWithAuth().delete(`/todo/:id`)
             .then(res => {
                 setTodos(res.data)
                 console.log(res.data)

@@ -14,7 +14,7 @@ const EditTodo = (props) => {
     });
 
     useEffect(() => {
-        axiosWithAuth().get(`https://my-todolist-apps.herokuapp.com/api/todos/todo${id}`)
+        axiosWithAuth().get(`/todo${id}`)
             .then(res => {
                 setTodo(res.data);
             })
@@ -32,7 +32,7 @@ const EditTodo = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axiosWithAuth().put(`https://my-todolist-apps.herokuapp.com/api/todos/todo${id}`, todo)
+        axiosWithAuth().put(`/todo${id}`, todo)
             .then(res => {
                 setTodo(res.data);
                 push(`/dashboard`);
