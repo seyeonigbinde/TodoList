@@ -8,7 +8,7 @@ const { JWT_SECRET } = require("../secrets/index")
 const { checkPayload,
   checkEmailFree,
   checkEmailExists,
-}= require('../middlewares/auth-middleware')
+} = require('../middlewares/auth-middleware')
 
 
 router.post('/register', checkEmailFree, (req, res, next) => {

@@ -85,7 +85,7 @@ const NewTodo = () => {
           </div>
           <br />
           <button disabled={disabled}>Create New Todo</button>
-          <Link to={'/dashboard'}><button className="btn btn-secondary"  type="button"  value="Cancel"> Cancel </button></Link>
+          <Link to={'/dashboard'}><button className="btn btn-secondary" type="button" value="Cancel"> Cancel </button></Link>
         </form>
       </section>
     </section>
