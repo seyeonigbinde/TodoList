@@ -69,7 +69,7 @@ const Signup = () => {
           <Link to='/'><img src="" alt="logo" /></Link>
         </div>
       </header>
-      <section className="form_section">
+      <section className="form_section2">
         <h1>Sign Up</h1><br />
         <form onSubmit={handleSubmit}>
           <div className="form-group form-label mt-3">

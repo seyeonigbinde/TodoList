@@ -7,6 +7,6 @@ export const axiosWithAuth = () => {
         headers: {
             authorization: token
         },
-        baseURL: 'https://altrest-app.herokuapp.com/api'
+        baseURL: 'https://my-todolist-apps.herokuapp.com/api'
     });
 }

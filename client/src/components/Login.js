@@ -45,7 +45,7 @@ const Login = () => {
           <Link to='/'><img src="" alt="logo" /></Link>
         </div>
       </header>
-      <div className="form_section">
+      <div className="form_section2">
         <div data-testid="loginForm" className="login-form">
           <h1>Login</h1><br />
 

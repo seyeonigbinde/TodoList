@@ -64,7 +64,7 @@ const NewTodo = () => {
 
 
   return (
-    <section>
+    <section className="todoform">
       <header>
         <div className="logo">
           <Link to='/'><img src="" alt="logo" /></Link>
@@ -80,7 +80,7 @@ const NewTodo = () => {
           <p className='errors'>{formErrors.title}</p>
           <div className="form-group form-label mt-3">
             <label htmlFor="activity">Activity:</label>
-            <input className="form-control" onChange={handleChange} value={formValues.activity} name="activity" id="activity" placeholder="Activity" />
+            <input className="form-control" onChange={handleChange} value={formValues.activity} name="activity" id="activity" placeholder="My Activity" />
             <p className='errors'>{formErrors.activity}</p>
           </div>
           <br />

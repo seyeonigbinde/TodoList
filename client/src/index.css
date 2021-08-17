@@ -20,7 +20,7 @@ line-height: 1.5;
 *{
   box-sizing: border-box; 
    max-width:100%; 
-   border: 1px solid red; 
+   /* border: 1px solid red;  */
   margin: 0 auto;
   background-color: #1C2833;;
   color: #fff;
@@ -45,13 +45,13 @@ code {
  .form_section2 {
   border: 2px solid #185adb;
   padding: 1% 2%;
-  width: 50%;
+  width: 100%;
   margin: auto;
   margin-bottom: 3%;
   margin-top: 3%;
 }
 .form_section2{
-  width: 70%;
+  width: 50%;
 }
 label{
   float: left;
@@ -67,6 +67,7 @@ label{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 70%;
 }
 .dashboard_container{
   display: flex;
@@ -75,7 +76,7 @@ label{
   width: 100%;
 }
 .dashboard_card{
-  width: 100%;
+  width: 90%;
   background: #eee;
   /* border: 1px solid #185adb; */
   box-shadow: 6px 4px 10px #185adb;
@@ -83,6 +84,9 @@ label{
   padding: 1rem;
   border-radius: 10px;
   text-align: left;
+}
+.todoform{
+  width: 100%;
 }
 .sidebar{
   width: 30%;
@@ -95,7 +99,7 @@ button{
   /* padding: 3% 3%;
   margin: 2% 2%; */
   cursor: pointer;
-  
+  border-radius: 5px;
 }
 .button_delete{
   background-color: #F1948A;
@@ -108,4 +112,14 @@ button{
 .button_details{
   background-color: #85C1E9;
   color: #4f4f4f;
+}
+
+@media screen and (max-width: 700px) {
+  .form_section2{
+    width: 100%;
+  }
+  .dashboard{
+    width: 100%;
+  }
+
 }

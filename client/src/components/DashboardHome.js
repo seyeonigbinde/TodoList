@@ -12,6 +12,7 @@ const Dashboard_Home = () => {
         axiosWithAuth().get("/todos")
             .then(res => {
                 setTodos(res.data)
+                console.log(res.data)
             })
             .catch(err => {
                 console.log(err)
@@ -54,12 +55,10 @@ const Dashboard_Home = () => {
     }
 
     return (
-        <section className="dashboard">
             <section>
                 <div>
                     <Link to="/dashboard/newtodo">Add New Todo</Link>
                 </div>
-                <div className="dashboard_container">
                     <div className="dashboard_card">
                         <button className="btn-secondary">Completed</button>
                         <br />
@@ -75,9 +74,7 @@ const Dashboard_Home = () => {
                         <button className="button_details" onClick={handleDetailTodo}><i className="fas fa-sticky-note"></i> Details</button><></>
                         <button className="button_delete" onClick={handleDeleteTodo}><i className="fas fa-trash-alt"></i> Delete</button>
                     </div>
-                </div>
-            </section>
-        </section>
+                </section>
     )
 }
 
