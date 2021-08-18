@@ -14,7 +14,7 @@ const EditTodo = (props) => {
     });
 
     useEffect(() => {
-        axiosWithAuth().get(`/todo${id}`)
+        axiosWithAuth().get('/todo/:id')
             .then(res => {
                 setTodo(res.data);
             })

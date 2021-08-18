@@ -5,6 +5,7 @@ import { axiosWithAuth } from '../utils/axiosWithAuth'
 const Dashboard_Home = () => {
 
     const [todos, setTodos] = useState([])
+    const [isOff, setIsOff] = useState(true);
 
     const { push } = useHistory()
 
@@ -12,7 +13,6 @@ const Dashboard_Home = () => {
         axiosWithAuth().get("/todos")
             .then(res => {
                 setTodos(res.data)
-                console.log(res.data)
             })
             .catch(err => {
                 console.log(err)
@@ -24,7 +24,6 @@ const Dashboard_Home = () => {
             .then(res => {
                 setTodos(res.data)
                 push('/dashboard')
-                console.log(res.data)
             })
             .catch(err => {
                 console.log(err)
@@ -35,47 +34,59 @@ const Dashboard_Home = () => {
         axiosWithAuth().put(`/todo/:id`)
             .then(res => {
                 setTodos(res.data)
-                push('/dashboard')
-                console.log(res.data)
+                push('/dashboard/edittodo')
             })
             .catch(err => {
                 console.log(err)
             })
     }
 
-    const handleDeleteTodo = () => {
+    const handleDeleteTodo = (todo_id) => {
         axiosWithAuth().delete(`/todo/:id`)
             .then(res => {
                 setTodos(res.data)
-                console.log(res.data)
             })
             .catch(err => {
                 console.log(err)
             })
+        const removeItem = todos.filter((todo) => {
+            return todo.todo_id !== todo_id;
+        });
+        setTodos(removeItem);
+        console.log(todo_id)
     }
 
-    return (
-            <section>
-                <div>
-                    <Link to="/dashboard/newtodo">Add New Todo</Link>
-                </div>
-                    <div className="dashboard_card">
-                        <button className="btn-secondary">Completed</button>
+
+    const handleClick = () => {
+        setIsOff(!isOff)
+    }
+
+return (
+    <section>
+        <div>
+            <Link to="/dashboard/newtodo" className="dashboard_addbutton"> + Add New Todo</Link>
+        </div>
+        <div className="dashboard_bg">
+            {todos.map((todo, i) => {
+                return (
+                    <div className="dashboard_card" key={i}>
+                        <button className="btn-primary m-3" onClick={handleClick}>{isOff ? 'Completed' : 'Not Completed'}</button>
+                        {/* <button className="btn-secondary m-2">Completed</button> */}
                         <br />
-                        {todos.map((todo, i) => {
-                            return (
-                                <div className="dashboard_card" key={i}>
-                                    <p>Title: {todo.title}</p>
-                                    <p>Activity: {todo.activity}</p>
-                                </div>
-                            )
-                        })}
-                        <button className="button_edit" onClick={handleUpdateTodo}><i className="fas fa-edit"></i> Edit</button>
-                        <button className="button_details" onClick={handleDetailTodo}><i className="fas fa-sticky-note"></i> Details</button><></>
-                        <button className="button_delete" onClick={handleDeleteTodo}><i className="fas fa-trash-alt"></i> Delete</button>
+                        <p>{todo.created_at}</p>
+                        <p><b>Title:</b> {todo.title}</p>
+                        <p><b>Activity:</b> {todo.activity}</p>
+                        <div className="button_container">
+                            <button className="button_edit" onClick={handleUpdateTodo}><i className="fas fa-edit"></i> Edit</button>
+                            <button className="button_details" onClick={handleDetailTodo}><i className="fas fa-sticky-note"></i> Details</button><></>
+                            <button className="button_delete" onClick={handleDeleteTodo}><i className="fas fa-trash-alt"></i> Delete</button>
+                        </div>
                     </div>
-                </section>
-    )
+                )
+            })}
+        </div>
+    </section>
+)
 }
 
 export default Dashboard_Home 

@@ -2,7 +2,7 @@ const db = require('../data/db-config')
 
 function findTodo() {
   return db("mytodo")
-  .select("todo_id", "title", "activity")
+  .select("todo_id", "title", "activity", "created_at")
   .orderBy("todo_id");
 }
 
@@ -18,7 +18,7 @@ function addTodo(todo) {
 
 function findTodoById(todo_id) {
   return db("mytodo")
-    .select("todo_id", "title", "activity")
+    .select("todo_id", "title", "activity", "created_at")
     .where({todo_id})
     .first()
 }

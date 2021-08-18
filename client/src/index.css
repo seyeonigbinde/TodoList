@@ -16,14 +16,14 @@ dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
 body {
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 line-height: 1.5;
+
 }
 *{
   box-sizing: border-box; 
    max-width:100%; 
    /* border: 1px solid red;  */
   margin: 0 auto;
-  background-color: #1C2833;;
-  color: #fff;
+  color: #4f4f4f;
 }
 h1{
   font-size: 2.8rem;
@@ -67,30 +67,46 @@ label{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 70%;
+  flex-wrap: wrap;
+  width: 90%;
+  margin-top: 1%;
 }
-.dashboard_container{
+.todo_dashboard{
+  width: 80%;
+}
+.dashboard_bg{
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  width: 100%;
 }
 .dashboard_card{
-  width: 90%;
-  background: #eee;
+  width: 30%;
+  background-color: #eee;
+  /* background: #1c2833; */
   /* border: 1px solid #185adb; */
   box-shadow: 6px 4px 10px #185adb;
   margin: 1rem;
   padding: 1rem;
   border-radius: 10px;
   text-align: left;
+  margin-top: 10%;
+
+}
+.dashboard_addbutton{
+  border: 2px solid #185adb;
+  padding: 1% 2%;
+  font-size: 1.2rem;
+  position: absolute;
+  text-decoration: none;
+  right: 6%;
 }
 .todoform{
   width: 100%;
 }
 .sidebar{
-  width: 30%;
+  width: 20%;
   text-align: center;
+  padding: 1%;
 }
 button{
   border: none;
@@ -99,7 +115,11 @@ button{
   /* padding: 3% 3%;
   margin: 2% 2%; */
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 10px;
+}
+.button_container {
+  display: flex;
+  justify-content: space-between;
 }
 .button_delete{
   background-color: #F1948A;
@@ -121,5 +141,14 @@ button{
   .dashboard{
     width: 100%;
   }
-
+  .sidebar{
+    width: 30%;
+    margin: 0 35%;
+  }
+  .todo_dashboard{
+    width: 90%;
+  }
+  .dashboard_card{  
+    width: 100%;
+  }
 }

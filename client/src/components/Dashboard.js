@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 
 import NewTodo from './NewTodo'
 import DashboardHome from './DashboardHome'
+import EditTodo from "./EditTodo"
 
 const Dashboard = () => {
 
@@ -19,17 +20,18 @@ const Dashboard = () => {
                 <br />
                 <button className="btn-primary" onClick={logOut}> Log Out</button>
             </div>
-            <section>
-                <div className="dashboard_container">
-                    <Switch>
-                        <Route path='/dashboard/newtodo'>
-                            <NewTodo />
-                        </Route>
-                        <Route exact path='/dashboard'>
-                            <DashboardHome />
-                        </Route>
-                    </Switch>
-                </div>
+            <section className="todo_dashboard">
+                <Switch>
+                    <Route path='/dashboard/edittodo'>
+                        <EditTodo />
+                    </Route>
+                    <Route path='/dashboard/newtodo'>
+                        <NewTodo />
+                    </Route>
+                    <Route exact path='/dashboard'>
+                        <DashboardHome />
+                    </Route>
+                </Switch>
             </section>
         </section>
     )

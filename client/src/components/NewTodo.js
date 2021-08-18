@@ -84,7 +84,7 @@ const NewTodo = () => {
             <p className='errors'>{formErrors.activity}</p>
           </div>
           <br />
-          <button disabled={disabled}>Create New Todo</button>
+          <button disabled={disabled}>Create New Todo</button> <span> </span>
           <Link to={'/dashboard'}><button className="btn btn-secondary" type="button" value="Cancel"> Cancel </button></Link>
         </form>
       </section>
