@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 const Dashboard_Home = () => {
@@ -8,9 +8,10 @@ const Dashboard_Home = () => {
     const [isOff, setIsOff] = useState(true);
 
     const { push } = useHistory()
+    const { todo_id } = useParams();
 
     useEffect(() => {
-        axiosWithAuth().get("/todos")
+        axiosWithAuth().get(`/todos`)
             .then(res => {
                 setTodos(res.data)
             })
@@ -41,8 +42,8 @@ const Dashboard_Home = () => {
             })
     }
 
-    const handleDeleteTodo = (todo_id) => {
-        axiosWithAuth().delete(`/todo/:id`)
+    const handleDeleteTodo = () => {
+        axiosWithAuth().delete(`/todo/${todo_id}`)
             .then(res => {
                 setTodos(res.data)
             })
@@ -70,6 +71,7 @@ return (
             {todos.map((todo, i) => {
                 return (
                     <div className="dashboard_card" key={i}>
+                    {/* <div className="dashboard_card"> */}
                         <button className="btn-primary m-3" onClick={handleClick}>{isOff ? 'Completed' : 'Not Completed'}</button>
                         {/* <button className="btn-secondary m-2">Completed</button> */}
                         <br />

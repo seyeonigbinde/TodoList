@@ -14,7 +14,14 @@ exports.up = function (knex) {
         .notNullable()
       table.string('activity', 150)
         .notNullable()
-      table.timestamps(false, true)
+      table.timestamp('created_at', { precision: 6 })
+        .defaultTo(knex.fn.now(6));
+      table.integer('user_id')
+        .unsigned()
+        .references('user_id')
+        .inTable('users')
+        .onDelete('CASCADE')
+        .onUpdate('CASCADE')
     })
 }
 
