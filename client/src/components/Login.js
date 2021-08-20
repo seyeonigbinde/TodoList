@@ -42,7 +42,6 @@ const Login = () => {
     <section>
       <header>
         <div className="logo">
-          <Link to='/'><img src="" alt="logo" /></Link>
         </div>
       </header>
       <div className="form_section2">

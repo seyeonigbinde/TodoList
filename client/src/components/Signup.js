@@ -15,6 +15,7 @@ const initialFormErrors = {
 }
 
 const Signup = () => {
+  
   const { push } = useHistory();
 
   const [formValues, setFormValues] = useState(initialFormValues)
@@ -61,12 +62,10 @@ const Signup = () => {
       })
   }
 
-
   return (
     <section>
       <header>
-        <div className="logo">
-          <Link to='/'><img src="" alt="logo" /></Link>
+        <div className="logo" >
         </div>
       </header>
       <section className="form_section2">
