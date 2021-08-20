@@ -2,8 +2,8 @@ const db = require('../data/db-config')
 
 function findTodo() {
   return db("mytodo as my")
-  .leftJoin("users as u", "u.user_id", "=", "my.user_id")
-  .select("todo_id", "title", "activity", "created_at", "email")
+//   .leftJoin("users as u", "u.user_id", "=", "my.user_id")
+  .select("todo_id", "title", "activity", "created_at")
   .orderBy("todo_id");
 }
 
