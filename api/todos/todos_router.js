@@ -33,27 +33,25 @@ router.post('/todos', (req, res, next) => {
     .catch(next);
 })
 
-router.put('/todo/:id', (req, res) => {
 
-  if (!req.params.id)
-    res.status(400).send("Your request is missing the todo id");
-  if (
-    req.body.id === undefined ||
-    !req.body.title ||
-    !req.body.activity
-  ) {
-    res
-      .status(422)
-      .send("Make sure your request body has all the fields it needs");
+router.put('/todo/:id', (req, res, next) => {
+  const todo_id = req.params.id 
+  const { title, activity } = req.body;
+  const findTodoById = todo => {
+    return todo.id === todo_id;
+  };
+  const foundTodo = Todo.find(findTodoById);
+  if (!foundTodo) {
+    return res.status(400).send("Your request is missing the todo id");
+  } else {
+    if (title) foundTodo.title = title;
+    if (activity) foundTodo.activity = activity;
+    return res(
+      res.status(200),
+      res.json(Todo)
+    )
   }
-  // movies = movies.map(movie => {
-  //   if (`${movie.id}` === req.params.id) {
-  //     return req.body;
-  //   }
-  //   return movie;
-  // });
-  // res.status(200).send(movies);
-});
+}),
 
 router.delete("/todo/:id", (req, res, next) => {
   const todo_id = req.params.id 

@@ -108,6 +108,10 @@ label{
   text-align: center;
   padding: 1%;
 }
+.sidebar h4{
+ color: #185adb
+}
+
 button{
   border: none;
   background-color: #185adb;

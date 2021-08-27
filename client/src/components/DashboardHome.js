@@ -75,7 +75,7 @@ return (
                         <button className="btn-primary m-3" onClick={handleClick}>{isOff ? 'Completed' : 'Not Completed'}</button>
                         {/* <button className="btn-secondary m-2">Completed</button> */}
                         <br />
-                        <p>{todo.created_at}</p>
+                        {/* <p>{todo.created_at}</p> */}
                         <p><b>Title:</b> {todo.title}</p>
                         <p><b>Activity:</b> {todo.activity}</p>
                         <div className="button_container">
