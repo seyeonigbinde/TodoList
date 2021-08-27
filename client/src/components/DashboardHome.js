@@ -21,7 +21,7 @@ const Dashboard_Home = () => {
     })
 
     const handleDetailTodo = () => {
-        axiosWithAuth().get(`/todo/:id`)
+        axiosWithAuth().get(`/todo/${todo_id}`)
             .then(res => {
                 setTodos(res.data)
                 push('/dashboard')
@@ -51,10 +51,10 @@ const Dashboard_Home = () => {
                 console.log(err)
             })
         const removeItem = todos.filter((todo) => {
-            return todo.todo_id !== todo_id;
+            return todo.id !== todo_id;
         });
         setTodos(removeItem);
-        console.log(todo_id)
+        console.log(todos) 
     }
 
 
@@ -72,7 +72,7 @@ return (
                 return (
                     <div className="dashboard_card" key={i}>
                     {/* <div className="dashboard_card"> */}
-                        <button className="btn-primary m-3" onClick={handleClick}>{isOff ? 'Completed' : 'Not Completed'}</button>
+                        <button className="btn-primary m-3" onClick={handleClick} key={i}>{isOff ? 'Completed' : 'Not Completed'}</button>
                         {/* <button className="btn-secondary m-2">Completed</button> */}
                         <br />
                         {/* <p>{todo.created_at}</p> */}
@@ -81,7 +81,7 @@ return (
                         <div className="button_container">
                             <button className="button_edit" onClick={handleUpdateTodo}><i className="fas fa-edit"></i> Edit</button>
                             <button className="button_details" onClick={handleDetailTodo}><i className="fas fa-sticky-note"></i> Details</button><></>
-                            <button className="button_delete" onClick={handleDeleteTodo}><i className="fas fa-trash-alt"></i> Delete</button>
+                            <button className="button_delete" onClick={(e) => handleDeleteTodo(todo.todo_id, e)}><i className="fas fa-trash-alt"></i> Delete</button>
                         </div>
                     </div>
                 )

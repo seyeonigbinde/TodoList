@@ -34,24 +34,27 @@ router.post('/todos', (req, res, next) => {
 })
 
 
-router.put('/todo/:id', (req, res, next) => {
-  const todo_id = req.params.id 
-  const { title, activity } = req.body;
-  const findTodoById = todo => {
-    return todo.id === todo_id;
-  };
-  const foundTodo = Todo.find(findTodoById);
-  if (!foundTodo) {
-    return res.status(400).send("Your request is missing the todo id");
-  } else {
-    if (title) foundTodo.title = title;
-    if (activity) foundTodo.activity = activity;
-    return res(
-      res.status(200),
-      res.json(Todo)
-    )
+
+router.put('/todo/:id', async (req, res) =>{
+  const {todo_id} = req.params
+  const {body} = req
+  try {
+      const updated = await Todo.editTodo(todo_id, body)
+      if (!updated) {
+          res.status(404).json({
+              message: `The todo with the ID ${todo_id} does not exist`
+          })
+      } else {
+          res.json(updated)
+          
+      }
+  }catch(err) {
+      res.status(500).json({ 
+      message: 'The todo information could not be modified',
+      error: err.message,
+      }) 
   }
-}),
+}) 
 
 router.delete("/todo/:id", (req, res, next) => {
   const todo_id = req.params.id 
