@@ -23,11 +23,12 @@ function findTodoById(todo_id) {
     .where({todo_id})
     .first()
 }
-function editTodo(todo_id) {
+
+function editTodo(todo_id, changes) {
     return db("mytodo")
-    .select("todo_id", "title", "activity")
-    .where({todo_id})
-    .update()
+      .where("id", todo_id)
+      .update(changes)
+      .then(count => (count > 0 ? findTodoById(todo_id) : null));
   }
 function deleteTodo(todo_id) {
     return db("mytodo")
@@ -36,7 +37,7 @@ function deleteTodo(todo_id) {
     .delete()
 }
 
-module.exports = {
+module.exports = {  
   findTodo,
   addTodo,
   findTodoBy,

@@ -1,5 +1,9 @@
 const express = require('express')
 const helpers = require('./todos_model')
+const {
+  validateTodo,
+  validateTodoId,
+} = require('../middlewares/todo-middleware');
 
 const Todo = require('./todos_model')
 
@@ -34,27 +38,16 @@ router.post('/todos', (req, res, next) => {
 })
 
 
+router.put('/:id', validateTodoId, validateTodo, (req, res, next) => {
 
-router.put('/todo/:id', async (req, res) =>{
-  const {todo_id} = req.params
-  const {body} = req
-  try {
-      const updated = await Todo.editTodo(todo_id, body)
-      if (!updated) {
-          res.status(404).json({
-              message: `The todo with the ID ${todo_id} does not exist`
-          })
-      } else {
-          res.json(updated)
-          
-      }
-  }catch(err) {
-      res.status(500).json({ 
-      message: 'The todo information could not be modified',
-      error: err.message,
-      }) 
-  }
-}) 
+  Todo.editTodo(req.params.id, req.body)
+  .then(todos => {
+    res.status(200).json(todos);
+  })
+  .catch(error => {
+    next(error)
+  });
+});
 
 router.delete("/todo/:id", (req, res, next) => {
   const todo_id = req.params.id 
