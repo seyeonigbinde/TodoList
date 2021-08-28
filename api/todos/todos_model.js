@@ -26,7 +26,7 @@ function findTodoById(todo_id) {
 
 function editTodo(todo_id, changes) {
     return db("mytodo")
-      .where("id", todo_id)
+      .where("todo_id", todo_id)
       .update(changes)
       .then(count => (count > 0 ? findTodoById(todo_id) : null));
   }
