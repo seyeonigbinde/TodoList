@@ -38,7 +38,7 @@ router.post('/todos', (req, res, next) => {
 })
 
 
-router.put('/:id', validateTodoId, validateTodo, (req, res, next) => {
+router.put('/todo/:id', validateTodoId, validateTodo, (req, res, next) => {
 
   Todo.editTodo(req.params.id, req.body)
   .then(todos => {

@@ -2,11 +2,11 @@ const Todo = require('../todos/todos_model')
 
 function validateTodoId(req, res, next) {
   console.log('validateTodoId middleware')
-  Todo.get(req.params.id)
+  Todo.findTodoById(req.params.id)
     .then(todo => {
       if (!todo) {
         res.status(404).json({
-          error: `project not found`
+          error: `Todo not found`
         })
       } else {
         req.todos = todo
