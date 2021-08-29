@@ -1,4 +1,4 @@
-import React, {useState } from "react"
+import React, { useState } from "react"
 
 
 const Todo = ({ todo, editing, editTodo, deleteTodo, viewTodo }) => {
@@ -12,6 +12,7 @@ const Todo = ({ todo, editing, editTodo, deleteTodo, viewTodo }) => {
 
     const handleToggle = () => {
         setIsOff(!isOff)
+
     }
 
 

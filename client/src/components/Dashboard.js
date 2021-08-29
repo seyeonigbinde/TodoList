@@ -12,7 +12,7 @@ const Dashboard = () => {
     const [todoList, setTodoList] = useState([])
     const [date, setDate] = useState(new Date());
 
-    
+
     useEffect(() => {
         axiosWithAuth().get(`/todos`)
             .then(res => {
@@ -21,7 +21,7 @@ const Dashboard = () => {
             .catch(err => {
                 console.log(err)
             })
-        })
+    })
 
 
     const logOut = () => {
@@ -59,7 +59,7 @@ const Dashboard = () => {
                         <NewTodo />
                     </Route>
                     <Route exact path='/dashboard'>
-                        <TodoList todos= {todoList} updateTodo={setTodoList}/>
+                        <TodoList todos={todoList} updateTodo={setTodoList} />
                     </Route>
                 </Switch>
             </section>

@@ -1,8 +1,8 @@
 import React from 'react'
 
 
-const EditTodo = ({todoEdit, saveEdit, setTodoEdit, setEditing}) => {
-    
+const EditTodo = ({ todoEdit, saveEdit, setTodoEdit, setEditing }) => {
+
 
     return (
         <div className="col">
@@ -15,16 +15,18 @@ const EditTodo = ({todoEdit, saveEdit, setTodoEdit, setEditing}) => {
                         <label htmlFor="title">Title:</label>
                         <input className="form-control" onChange={(e) =>
                             setTodoEdit({ ...todoEdit, title: e.target.value })
-                            }
+                        }
                             value={todoEdit.title} name="title" id="title" />
                     </div>
                     <div className="form-group form-label mt-3">
                         <label htmlFor="activity">Activity:</label>
                         <input className="form-control" onChange={(e) =>
-                            setTodoEdit({ ...todoEdit,
-                                activity: e.target.value})
-                                }
-                        value={todoEdit.activity} name="activity" id="activity" />
+                            setTodoEdit({
+                                ...todoEdit,
+                                activity: e.target.value
+                            })
+                        }
+                            value={todoEdit.activity} name="activity" id="activity" />
                     </div>
                     <div className="modal-footer">
                         <button type="submit">Save</button>

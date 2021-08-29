@@ -8,7 +8,7 @@ import Todo from "./Todo"
 const initialTodo = {
     title: "",
     activity: ""
-  }
+}
 
 const TodoList = ({ todos, updateTodo }) => {
 
@@ -19,7 +19,7 @@ const TodoList = ({ todos, updateTodo }) => {
 
     const { push } = useHistory()
 
-        const detailTodo = e => {
+    const detailTodo = e => {
         e.preventDefault();
         axiosWithAuth().get(`/todo/${todoDetail.todo_id}`)
             .then(res => {
@@ -29,52 +29,52 @@ const TodoList = ({ todos, updateTodo }) => {
             .catch(err => {
                 console.log(err)
             })
-        }
-        const viewTodo = () => {
-            setDetail(true);
-        };
+    }
+    const viewTodo = () => {
+        setDetail(true);
+    };
 
 
-        const editTodo = todo => {
-            setEditing(true);
-            setTodoEdit(todo);
-        };
-      
-        const saveEdit = e => {
-          e.preventDefault();
-          axiosWithAuth().put(`/todo/${todoEdit.todo_id}`, todoEdit)
-            .then(res=>{
-              setTodoEdit(res.data);
-              push('/dashboard')
+    const editTodo = todo => {
+        setEditing(true);
+        setTodoEdit(todo);
+    };
+
+    const saveEdit = e => {
+        e.preventDefault();
+        axiosWithAuth().put(`/todo/${todoEdit.todo_id}`, todoEdit)
+            .then(res => {
+                setTodoEdit(res.data);
+                push('/dashboard')
             })
-            .catch(err=>{
-              console.log(err);
+            .catch(err => {
+                console.log(err);
             })
-        };
-      
-        const deleteTodo = todo => {
-          axiosWithAuth().delete(`/todo/${todo.todo_id}`)
-            .then(res=> {
-              setEditing(res.data);
+    };
+
+    const deleteTodo = todo => {
+        axiosWithAuth().delete(`/todo/${todo.todo_id}`)
+            .then(res => {
+                setEditing(res.data);
             })
-            .catch(err=>{
-              console.log(err);
+            .catch(err => {
+                console.log(err);
             })
-        };
+    };
 
 
-return (
-    <section>
-        <div>
-            <Link to="/dashboard/newtodo" className="dashboard_addbutton"> + Add New Todo</Link>
-        </div>
-        <div className="dashboard_bg">
-            {todos.map(todo => <Todo key={todo.id} editing={editing} todo={todo} editTodo={editTodo} deleteTodo={deleteTodo} viewTodo={viewTodo} />)}
-        </div>
-        { editing && <EditTodo todoEdit={todoEdit} saveEdit={saveEdit} setTodoEdit={setTodoEdit} setEditing={setEditing}/> }
-        { detail && <DetailTodo  detailTodo={detailTodo}  setDetail={setDetail} todoDetail={todoDetail} setTodoDetail={setTodoDetail}/> }
-    </section>
-)
+    return (
+        <section>
+            <div>
+                <Link to="/dashboard/newtodo" className="dashboard_addbutton"> + Add New Todo</Link>
+            </div>
+            <div className="dashboard_bg">
+                {todos.map(todo => <Todo key={todo.id} editing={editing} todo={todo} editTodo={editTodo} deleteTodo={deleteTodo} viewTodo={viewTodo} />)}
+            { editing && <EditTodo todoEdit={todoEdit} saveEdit={saveEdit} setTodoEdit={setTodoEdit} setEditing={setEditing} />}
+            { detail && <DetailTodo detailTodo={detailTodo} setDetail={setDetail} todoDetail={todoDetail} setTodoDetail={setTodoDetail} />}
+            </div>
+        </section>
+    )
 }
 
 export default TodoList 
