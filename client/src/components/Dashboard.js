@@ -3,12 +3,26 @@ import { Switch, Route } from 'react-router-dom'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 import NewTodo from './NewTodo'
-import DashboardHome from './DashboardHome'
+import TodoList from './TodoList'
 import EditTodo from "./EditTodo"
+import DetailTodo from "./DetailTodo"
 
 const Dashboard = () => {
 
+    const [todoList, setTodoList] = useState([])
     const [date, setDate] = useState(new Date());
+
+    
+    useEffect(() => {
+        axiosWithAuth().get(`/todos`)
+            .then(res => {
+                setTodoList(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        })
+
 
     const logOut = () => {
         localStorage.removeItem("token")
@@ -20,35 +34,7 @@ const Dashboard = () => {
         return function cleanup() {
             clearInterval(timer)
         }
-
     });
-
-        // const options = {
-    //     method: 'GET',
-    //     url: 'https://community-open-weather-map.p.rapidapi.com/weather',
-    //     params: {
-    //         q: 'London,uk',
-    //         lat: '0',
-    //         lon: '0',
-    //         callback: 'test',
-    //         id: '2172797',
-    //         lang: 'null',
-    //         units: '"metric" or "imperial"',
-    //         mode: 'xml, html'
-    //     },
-    //     headers: {
-    //         'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
-    //         'x-rapidapi-key': '881fb379f0msh4019f80abe2a374p1f1b6bjsn6f262b9727df'
-    //     }
-    // };
-
-    // axiosWithAuth().request(options)
-    //     .then(function (response) {
-    //         console.log(response.data);
-    //     })
-    //     .catch(function (error) {
-    //         console.error(error);
-    //     });
 
 
     return (
@@ -63,6 +49,9 @@ const Dashboard = () => {
             </div>
             <section className="todo_dashboard">
                 <Switch>
+                    <Route path='/dashboard/detailtodo'>
+                        <DetailTodo />
+                    </Route>
                     <Route path='/dashboard/edittodo'>
                         <EditTodo />
                     </Route>
@@ -70,7 +59,7 @@ const Dashboard = () => {
                         <NewTodo />
                     </Route>
                     <Route exact path='/dashboard'>
-                        <DashboardHome />
+                        <TodoList todos= {todoList} updateTodo={setTodoList}/>
                     </Route>
                 </Switch>
             </section>
