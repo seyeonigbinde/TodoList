@@ -22,9 +22,7 @@ const EditTodo = ({ todoEdit, saveEdit, setTodoEdit, setEditing }) => {
                         <label htmlFor="activity">Activity:</label>
                         <input className="form-control" onChange={(e) =>
                             setTodoEdit({
-                                ...todoEdit,
-                                activity: e.target.value
-                            })
+                                ...todoEdit, activity: e.target.value })
                         }
                             value={todoEdit.activity} name="activity" id="activity" />
                     </div>
