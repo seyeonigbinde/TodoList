@@ -22,7 +22,7 @@ line-height: 1.5;
    max-width:100%; 
    /* border: 1px solid red;  */
   margin: 0 auto;
-  color: #4f4f4f;
+  /* color: #4f4f4f; */
   margin-top: 1%;
 }
 h1{
@@ -135,6 +135,29 @@ button{
 .button_details{
   background-color: #85C1E9;
   color: #4f4f4f;
+}
+footer{
+  background-color: #185adb;
+  color: #fff;
+}
+.dash_footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.dash_copyright{
+  text-align: center;
+  padding: 1% 0;
+  width: 80%;
+}
+.dash_socials{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 15%;
+  padding: 1% 0;
+  margin: 1% 1%;
 }
 
 @media screen and (max-width: 700px) {
