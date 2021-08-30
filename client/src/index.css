@@ -140,6 +140,12 @@ footer{
   background-color: #185adb;
   color: #fff;
 }
+.dash_copyright a{
+  color: #fff;
+}
+.dash_copyright a:hover{
+  color: #ccc;
+}
 .dash_footer{
   display: flex;
   justify-content: space-between;

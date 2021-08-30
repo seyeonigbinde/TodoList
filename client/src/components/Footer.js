@@ -7,7 +7,7 @@ const Footer = () => {
         <footer>
             <section className="dash_footer" >
                 <div className="dash_copyright">
-                    <p>Copyright &copy; 2021 || Designed by Stevens Design Tech.</p>
+                    <p>Copyright &copy; 2021 || Designed by <a href="https://seyeonigbinde.vercel.app/"> Stevens Design Tech.</a></p>
                 </div>
                 <div className="dash_socials">
                     <i class="fab fa-facebook-f fa-2x" style={{ color: '#fff' }}></i>
