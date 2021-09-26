@@ -1,40 +1,94 @@
 /* CSS Reset */
-html, body, div, span, applet, object, iframe, table, caption, tbody, tfoot, thead, tr, th, td, 
-del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, 
-h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, 
-dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
-	vertical-align: baseline;
-	font-family: inherit;
-	font-weight: inherit;
-	font-style: inherit;
-	font-size: 100%;
-	outline: 0;
-	padding: 0;
-	margin: 0;
-/* 	border: 0; */
-	}
-body {
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-line-height: 1.5;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend {
+  vertical-align: baseline;
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  /* 	border: 0; */
 }
-*{
-  box-sizing: border-box; 
-   max-width:100%; 
-   /* border: 1px solid red;  */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+}
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+  /* border: 1px solid red;  */
   margin: 0 auto;
   /* color: #4f4f4f; */
   margin-top: 1%;
 }
-h1{
+h1 {
   font-size: 2.8rem;
 }
-h2{
-  font-size: 2.0rem;
+h2 {
+  font-size: 2rem;
 }
-h3{
+h3 {
   font-size: 1.4rem;
 }
-p{
+p {
   font-size: 1rem;
 }
 code {
@@ -42,7 +96,7 @@ code {
     monospace;
 }
 .form_section,
- .form_section2 {
+.form_section2 {
   border: 2px solid #185adb;
   padding: 1% 2%;
   width: 100%;
@@ -50,35 +104,35 @@ code {
   margin-bottom: 3%;
   margin-top: 3%;
 }
-.form_section2{
+.form_section2 {
   width: 50%;
 }
-label{
+label {
   float: left;
-	width: 8em;
-	text-align: left;
+  width: 8em;
+  text-align: left;
   align-items: center;
   padding-top: 1%;
-	padding-right: 0.5em;
+  padding-right: 0.5em;
   font-size: 1rem;
   margin: 0 0%;
 }
-.dashboard{
+.dashboard {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   width: 90%;
 }
-.todo_dashboard{
+.todo_dashboard {
   width: 80%;
 }
-.dashboard_bg{
+.dashboard_bg {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.dashboard_card{
+.dashboard_card {
   width: 30%;
   background-color: #eee;
   /* background: #1c2833; */
@@ -89,9 +143,8 @@ label{
   border-radius: 10px;
   text-align: left;
   margin-top: 10%;
-
 }
-.dashboard_addbutton{
+.dashboard_addbutton {
   border: 2px solid #185adb;
   padding: 1% 2%;
   font-size: 1.2rem;
@@ -99,19 +152,19 @@ label{
   text-decoration: none;
   right: 6%;
 }
-.todoform{
+.todoform {
   width: 100%;
 }
-.sidebar{
+.sidebar {
   width: 20%;
   text-align: center;
   padding: 1%;
 }
-.sidebar h4{
- color: #185adb
+.sidebar h4 {
+  color: #185adb;
 }
 
-button{
+button {
   border: none;
   background-color: #185adb;
   color: white;
@@ -124,66 +177,70 @@ button{
   display: flex;
   justify-content: space-between;
 }
-.button_delete{
-  background-color: #F1948A;
+.button_delete {
+  background-color: #f1948a;
   color: #4f4f4f;
 }
-.button_edit{
-  background-color: #F9E79F;
+.button_edit {
+  background-color: #f9e79f;
   color: #4f4f4f;
 }
-.button_details{
-  background-color: #85C1E9;
+.button_details {
+  background-color: #85c1e9;
   color: #4f4f4f;
 }
-footer{
+footer {
+  margin-top: 16%;
   background-color: #185adb;
   color: #fff;
 }
-.dash_copyright a{
+.dash_copyright a {
   color: #fff;
 }
-.dash_copyright a:hover{
+.dash_copyright p {
+  font-size: 0.7rem;
+}
+.dash_copyright a:hover {
   color: #ccc;
 }
-.dash_footer{
+.dash_footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
-.dash_copyright{
+.dash_copyright {
   text-align: center;
-  padding: 1% 0;
+  padding: 1% 0%;
   width: 80%;
 }
-.dash_socials{
+.dash_socials {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  width: 15%;
+  width: 12%;
   padding: 1% 0;
-  margin: 1% 1%;
+  margin: 1% 3%;
 }
 
 @media screen and (max-width: 700px) {
-  .form_section2{
+  .form_section2 {
     width: 100%;
   }
-  .dashboard{
+  .dashboard {
     width: 100%;
   }
-  .sidebar{
+  .sidebar {
     width: 30%;
     margin: 0 10%;
   }
-  .todo_dashboard{
+  .todo_dashboard {
     width: 90%;
   }
-  .dashboard_addbutton{
+  .dashboard_addbutton {
     top: 13%;
   }
-  .dashboard_card{  
+  .dashboard_card {
     width: 100%;
   }
 }
